@@ -27,8 +27,8 @@ public final class UpdateRegionMessage implements InputMessageListener {
             player.getTolerance().reset();
             player.setUpdateRegion(false);
 
-            if (Server.DEBUG)
-                player.getMessages().sendMessage("DEBUG[region= " + player.getPosition().getRegion() + "]");
+           // if (Server.DEBUG)
+               // player.getMessages().sendMessage("DEBUG[region= " + player.getPosition().getRegion() + "]");
         }
     }
 }

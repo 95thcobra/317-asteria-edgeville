@@ -489,7 +489,7 @@ public final class MovementQueue {
             }
             
             //character.getMovementQueue().walk(leader.getPosition().copy());
-            ((Player)character).followPlayer((Player)leader);
+            character.followPlayer(leader);
             //((Player)character).getMessages().sendMessage("following....");
            // Region.findRoute(character, destX, destY, moveNear, xLength, yLength);
         }

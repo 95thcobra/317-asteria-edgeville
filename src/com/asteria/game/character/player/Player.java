@@ -68,66 +68,24 @@ import com.asteria.utility.TextUtils;
  */
 public final class Player extends CharacterNode {
 
-	public void playerWalk(int x, int y) {
-		PathFinder.findRoute(this, x, y, true, 1, 1);
+	private boolean debugEnabled = false;
+
+	private Task currentCancellableTask;
+
+	public Task getCurrentCancellableTask() {
+		return currentCancellableTask;
 	}
 
-	public void followPlayer(Player other) {
-		int otherX = other.getPosition().getX();
-		int otherY = other.getPosition().getY();
-		int x = this.getPosition().getX();
-		int y = this.getPosition().getY();
-
-		boolean sameSpot = this.getPosition().equals(other.getPosition());
-		boolean running = this.getMovementQueue().isRunning();
-
-		boolean hallyDistance = false;
-		boolean rangeWeaponDistance = false;
-		boolean bowDistance = false;
-		boolean mageDistance = false;
-		boolean castingMagic = false;
-		boolean playerRanging = false;
-		boolean playerBowOrCross = false;
-
-		playerWalk(otherX, otherY);
-		/*
-		 * if (running) { if (otherY > otherY && otherX == otherX) {
-		 * playerWalk(otherX, otherY - 1); } else if (otherY < otherY && otherX
-		 * == otherX) { playerWalk(otherX, otherY + 1); } else if (otherX >
-		 * otherX && otherY == otherY) { playerWalk(otherX - 1, otherY); } else
-		 * if (otherX < otherX && otherY == otherY) { playerWalk(otherX + 1,
-		 * otherY); } else if (otherX < otherX && otherY < otherY) {
-		 * playerWalk(otherX + 1, otherY + 1); } else if (otherX > otherX &&
-		 * otherY > otherY) { playerWalk(otherX - 1, otherY - 1); } else if
-		 * (otherX < otherX && otherY > otherY) { playerWalk(otherX + 1, otherY
-		 * - 1); } else if (otherX > otherX && otherY < otherY) {
-		 * playerWalk(otherX + 1, otherY - 1); } } else { if (otherY > otherY &&
-		 * otherX == otherX) { playerWalk(otherX, otherY - 1); } else if (otherY
-		 * < otherY && otherX == otherX) { playerWalk(otherX, otherY + 1); }
-		 * else if (otherX > otherX && otherY == otherY) { playerWalk(otherX -
-		 * 1, otherY); } else if (otherX < otherX && otherY == otherY) {
-		 * playerWalk(otherX + 1, otherY); } else if (otherX < otherX && otherY
-		 * < otherY) { playerWalk(otherX + 1, otherY + 1); } else if (otherX >
-		 * otherX && otherY > otherY) { playerWalk(otherX - 1, otherY - 1); }
-		 * else if (otherX < otherX && otherY > otherY) { playerWalk(otherX + 1,
-		 * otherY - 1); } else if (otherX > otherX && otherY < otherY) {
-		 * playerWalk(otherX - 1, otherY + 1); } }
-		 */
+	public void setCurrentCancellableTask(Task currentCancellableTask) {
+		this.currentCancellableTask = currentCancellableTask;
 	}
 
-	public boolean goodDistance(int objectX, int objectY, int playerX, int playerY, int distance) {
-		for (int i = 0; i <= distance; i++) {
-			for (int j = 0; j <= distance; j++) {
-				if ((objectX + i) == playerX && ((objectY + j) == playerY || (objectY - j) == playerY || objectY == playerY)) {
-					return true;
-				} else if ((objectX - i) == playerX && ((objectY + j) == playerY || (objectY - j) == playerY || objectY == playerY)) {
-					return true;
-				} else if (objectX == playerX && ((objectY + j) == playerY || (objectY - j) == playerY || objectY == playerY)) {
-					return true;
-				}
-			}
+	public void stopActions() {
+		if (currentCancellableTask == null) {
+			return;
 		}
-		return false;
+		currentCancellableTask.cancel();
+		currentCancellableTask = null;
 	}
 
 	/**
@@ -1878,5 +1836,25 @@ public final class Player extends CharacterNode {
 
 	public void message(String message, Object... args) {
 		getMessages().sendMessage(String.format(message, args));
+	}
+
+	public boolean isDebugEnabled() {
+		return debugEnabled;
+	}
+
+	public void setDebugEnabled(boolean debugEnabled) {
+		this.debugEnabled = debugEnabled;
+	}
+
+	public void setLevel(Player player, int skillId, int level) {
+		if (level > 99) {
+			level = 99;
+		} else if (level < 1) {
+			level = 1;
+		}
+		Skill skill = skills[skillId];
+		skill.setExperience(skill.getXPForLevel(level));
+		skill.setRealLevel(level);
+		Skills.restore(player, skillId);
 	}
 }

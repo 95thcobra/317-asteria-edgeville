@@ -85,8 +85,6 @@ public final class CombatBuilder {
 		if (character.equals(target))
 			return;
 
-		((Player) target).message("Building combat...");
-
 		if (target.equals(currentVictim)) {
 			determineStrategy();
 			if (character.getPosition().withinDistance(currentVictim.getPosition(), strategy.attackDistance(character))) {

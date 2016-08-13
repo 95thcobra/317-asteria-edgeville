@@ -16,6 +16,7 @@ import com.asteria.game.character.combat.magic.CombatWeaken;
 import com.asteria.game.character.npc.Npc;
 import com.asteria.game.character.player.Player;
 import com.asteria.game.location.Position;
+import com.asteria.game.region.PathFinder;
 import com.asteria.task.Task;
 import com.asteria.utility.MutableNumber;
 import com.asteria.utility.Stopwatch;
@@ -1017,4 +1018,66 @@ public abstract class CharacterNode extends Node {
     public void setPoisonType(PoisonType poisonType) {
         this.poisonType = poisonType;
     }
+
+	public boolean goodDistance(int objectX, int objectY, int playerX, int playerY, int distance) {
+		for (int i = 0; i <= distance; i++) {
+			for (int j = 0; j <= distance; j++) {
+				if ((objectX + i) == playerX && ((objectY + j) == playerY || (objectY - j) == playerY || objectY == playerY)) {
+					return true;
+				} else if ((objectX - i) == playerX && ((objectY + j) == playerY || (objectY - j) == playerY || objectY == playerY)) {
+					return true;
+				} else if (objectX == playerX && ((objectY + j) == playerY || (objectY - j) == playerY || objectY == playerY)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public void playerWalk(int x, int y) {
+		PathFinder.findRoute(this, x, y, true, 1, 1);
+	}
+
+	public void followPlayer(CharacterNode other) {
+		int otherX = other.getPosition().getX();
+		int otherY = other.getPosition().getY();
+		int x = this.getPosition().getX();
+		int y = this.getPosition().getY();
+
+		boolean sameSpot = this.getPosition().equals(other.getPosition());
+		boolean running = this.getMovementQueue().isRunning();
+
+		boolean hallyDistance = false;
+		boolean rangeWeaponDistance = false;
+		boolean bowDistance = false;
+		boolean mageDistance = false;
+		boolean castingMagic = false;
+		boolean playerRanging = false;
+		boolean playerBowOrCross = false;
+
+		playerWalk(otherX, otherY);
+		/*
+		 * if (running) { if (otherY > otherY && otherX == otherX) {
+		 * playerWalk(otherX, otherY - 1); } else if (otherY < otherY && otherX
+		 * == otherX) { playerWalk(otherX, otherY + 1); } else if (otherX >
+		 * otherX && otherY == otherY) { playerWalk(otherX - 1, otherY); } else
+		 * if (otherX < otherX && otherY == otherY) { playerWalk(otherX + 1,
+		 * otherY); } else if (otherX < otherX && otherY < otherY) {
+		 * playerWalk(otherX + 1, otherY + 1); } else if (otherX > otherX &&
+		 * otherY > otherY) { playerWalk(otherX - 1, otherY - 1); } else if
+		 * (otherX < otherX && otherY > otherY) { playerWalk(otherX + 1, otherY
+		 * - 1); } else if (otherX > otherX && otherY < otherY) {
+		 * playerWalk(otherX + 1, otherY - 1); } } else { if (otherY > otherY &&
+		 * otherX == otherX) { playerWalk(otherX, otherY - 1); } else if (otherY
+		 * < otherY && otherX == otherX) { playerWalk(otherX, otherY + 1); }
+		 * else if (otherX > otherX && otherY == otherY) { playerWalk(otherX -
+		 * 1, otherY); } else if (otherX < otherX && otherY == otherY) {
+		 * playerWalk(otherX + 1, otherY); } else if (otherX < otherX && otherY
+		 * < otherY) { playerWalk(otherX + 1, otherY + 1); } else if (otherX >
+		 * otherX && otherY > otherY) { playerWalk(otherX - 1, otherY - 1); }
+		 * else if (otherX < otherX && otherY > otherY) { playerWalk(otherX + 1,
+		 * otherY - 1); } else if (otherX > otherX && otherY < otherY) {
+		 * playerWalk(otherX - 1, otherY + 1); } }
+		 */
+	}
 }

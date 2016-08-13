@@ -1,6 +1,7 @@
 package com.asteria.net.message.impl;
 
 import com.asteria.Server;
+import com.asteria.game.World;
 import com.asteria.game.character.player.Player;
 import com.asteria.game.location.Position;
 import com.asteria.net.message.InputMessageListener;
@@ -18,6 +19,8 @@ public final class MovementQueueMessage implements InputMessageListener {
     public void handleMessage(Player player, int opcode, int size, MessageBuilder payload) {
         if (player.isDisabled())
             return;
+        
+        player.stopActions();
 
         player.faceCharacter(null);
 
@@ -60,17 +63,23 @@ public final class MovementQueueMessage implements InputMessageListener {
             path[i][1] = payload.get();
         }
         int firstStepY = payload.getShort(com.asteria.net.ByteOrder.LITTLE);
-        player.getMovementQueue().reset();
-        player.getMovementQueue().setRunPath(payload.get(com.asteria.net.ValueType.C) == 1);
-        player.getMovementQueue().addToPath(new Position(firstStepX, firstStepY));
+       // player.getMovementQueue().reset();
+       // player.getMovementQueue().setRunPath(payload.get(com.asteria.net.ValueType.C) == 1);
+       // player.getMovementQueue().addToPath(new Position(firstStepX, firstStepY));
 
+        int x = firstStepX;
+        int y = firstStepY;
         for (int i = 0; i < steps; i++) {
             path[i][0] += firstStepX;
             path[i][1] += firstStepY;
-            player.getMovementQueue().addToPath(new Position(path[i][0], path[i][1]));
+            //player.getMovementQueue().addToPath(new Position(path[i][0], path[i][1]));
+             x = path[i][0];
+             y = path[i][1];
         }
-        player.getMovementQueue().finish();
+       // player.getMovementQueue().finish();
 
+        player.playerWalk(x, y);
+        
         //if (Server.DEBUG)
            // player.getMessages().sendMessage("DEBUG[walking= " + player.getPosition().getRegion() + "]");
     }

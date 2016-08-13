@@ -2,8 +2,8 @@
   "username": "test1",
   "password": "test",
   "position": {
-    "x": 3088,
-    "y": 3520,
+    "x": 3087,
+    "y": 3523,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -24,6 +24,7 @@
   ],
   "running": true,
   "new-player": false,
+  "debug": true,
   "inventory": [
     {
       "id": 995,

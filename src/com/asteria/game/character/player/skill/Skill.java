@@ -1,5 +1,7 @@
 package com.asteria.game.character.player.skill;
 
+import com.asteria.game.character.player.Player;
+
 /**
  * The representation of a single skill that can be trained by a player.
  *
@@ -51,6 +53,21 @@ public final class Skill {
 		}
 		realLevel = 99;
 		return 99;
+	}
+	
+	public int getXPForLevel(int level)
+	{
+		int points = 0;
+		int output = 0;
+		for (int lvl = 1; lvl <= level; lvl++) {
+			points += Math.floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
+			if (lvl >= level)
+			{
+				return output;
+			}
+			output = (int) Math.floor(points / 4);
+		}
+		return 0;
 	}
 
 	/**

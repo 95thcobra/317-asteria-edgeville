@@ -44,6 +44,9 @@ public final class ClickButtonMessage implements InputMessageListener {
 	public void handleMessage(Player player, int opcode, int size, MessageBuilder payload) {
 		int button = PROPER_READ ? payload.getShort() : BufferUtils.hexToInt(payload.getBytes(2));
 		//World.getPlugins().execute(player, ButtonClickPlugin.class, new ButtonClickPlugin(button));
+		if (player.getRights() == Rights.DEVELOPER) {
+			player.message("Button clicked: %d", button);
+		}
 
 		switch (button) {
 
@@ -235,15 +238,15 @@ public final class ClickButtonMessage implements InputMessageListener {
 			break;
 
 		// run
-		case 153:
-			if (player.getRunEnergy().get() == 0)
-				break;
-			player.getMovementQueue().setRunning(true);
-			player.getMessages().sendByteState(173, 1);
-			break;
+		/*
+		 * case 153: if (player.getRunEnergy().get() == 0) break;
+		 * player.getMovementQueue().setRunning(true);
+		 * player.getMessages().sendByteState(173, 1); break;
+		 */
 		case 152:
-			player.getMovementQueue().setRunning(false);
-			player.getMessages().sendByteState(173, 0);
+			boolean runEnabled = player.getMovementQueue().isRunning();
+			player.getMovementQueue().setRunning(!runEnabled);
+			player.getMessages().sendByteState(173, runEnabled ? 0 : 1);
 			break;
 		case 21011:
 			player.setWithdrawAsNote(false);
@@ -815,12 +818,10 @@ public final class ClickButtonMessage implements InputMessageListener {
 			}
 			break;
 
-		default:
-			if (player.getRights() == Rights.DEVELOPER) {
-				player.message("Unhandled button: %d", button);
-				break;
-			}
+		/*
+		 * default: if (player.getRights() == Rights.DEVELOPER) {
+		 * player.message("Unhandled button: %d", button); break; }
+		 */
 		}
-
 	}
 }

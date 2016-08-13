@@ -27,13 +27,12 @@ public class Region {
 	 * An array of {@link WorldObject} objects that will be added after the maps
 	 * have been loaded.
 	 */
-	private static final WorldObject[] EXISTANT_OBJECTS = { new WorldObject(25808, 2729, 3494, 0, 0), new WorldObject(25808, 2728, 3494, 0, 0), new WorldObject(25808, 2727, 3494, 0, 0), new WorldObject(25808, 2724, 3494, 0, 0), new WorldObject(25808, 2722, 3494, 0, 0), new WorldObject(25808, 2721, 3494, 0, 0), new WorldObject(11764, 2513, 4771, 0, 0), new WorldObject(11758, 2511, 4773, 0, 0), new WorldObject(11762, 2512, 4778, 0, 0), new WorldObject(11755, 2512, 4780, 0, 0), new WorldObject(11756, 2513, 4782, 0, 0), new WorldObject(1276, 2516, 4785, 0, 0), new WorldObject(11744, 2525, 4777, 0, 0), new WorldObject(13712, 2542, 4780, 0, 0), new WorldObject(13708, 2542, 4779, 0, 0), new WorldObject(13710, 2542, 4778, 0, 0), new WorldObject(13714, 2542, 4777, 0, 0), new WorldObject(13718, 2542, 4776, 0, 0), new WorldObject(14168, 2542, 4775, 0, 0), new WorldObject(2104, 2542, 4774, 0, 0), new WorldObject(2030, 2539, 4782, 0, 0),
-
-			new WorldObject(409, 3085, 3508, 0, 0), new WorldObject(26258, 3085, 3511, 0, 0), new WorldObject(2031, 2539, 4773, 0, 0),
-
+	private static final WorldObject[] EXISTANT_OBJECTS = { 
+		new WorldObject(409, 3092, 3506, 0, 1), // prayer altar facing south
+		new WorldObject(6552, 3095, 3506, 0, 1),  // spell book altar 
 	};
 
-	private static final int[] PASSABLE_OBJECTS = { 5244 };
+	private static final int[] PASSABLE_OBJECTS = { /*5244*/ };
 
 	public static boolean blockedNorthNPC(int x, int y, int z, int size) {
 		if (size > 0) {

@@ -1,9 +1,9 @@
 {
-  "username": "sky",
+  "username": "test",
   "password": "test",
   "position": {
-    "x": 3095,
-    "y": 3496,
+    "x": 3089,
+    "y": 3526,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -24,24 +24,15 @@
   ],
   "running": true,
   "new-player": false,
-  "debug": true,
+  "debug": false,
   "inventory": [
     {
       "id": 995,
-      "amount": 5
+      "amount": 10000
     },
-    {
-      "id": 4151,
-      "amount": 1
-    },
-    {
-      "id": 526,
-      "amount": 1
-    },
-    {
-      "id": 5698,
-      "amount": 1
-    },
+    null,
+    null,
+    null,
     null,
     null,
     null,
@@ -68,10 +59,7 @@
     null
   ],
   "bank": [
-    {
-      "id": 995,
-      "amount": 9995
-    },
+    null,
     null,
     null,
     null,
@@ -326,10 +314,6 @@
     null,
     null,
     null,
-    {
-      "id": 861,
-      "amount": 1
-    },
     null,
     null,
     null,
@@ -339,18 +323,16 @@
     null,
     null,
     null,
-    {
-      "id": 892,
-      "amount": 25302
-    }
+    null,
+    null
   ],
   "friends": [],
   "ignores": [],
-  "run-energy": 81,
+  "run-energy": 100,
   "spellbook": "NORMAL",
   "account-banned": false,
   "auto-retaliate": false,
-  "fight-type": "SHORTBOW_ACCURATE",
+  "fight-type": "UNARMED_PUNCH",
   "skull-timer": 0,
   "accept-aid": true,
   "poison-damage": 0,
@@ -359,11 +341,6 @@
   "skills": [
     {
       "level": 99,
-      "experience": 1.5037968E7,
-      "realLevel": 99
-    },
-    {
-      "level": 99,
       "experience": 1.5E7,
       "realLevel": 99
     },
@@ -374,12 +351,17 @@
     },
     {
       "level": 99,
-      "experience": 1.500164E7,
+      "experience": 1.5E7,
       "realLevel": 99
     },
     {
       "level": 99,
-      "experience": 1.5000272E7,
+      "experience": 1.50013E7,
+      "realLevel": 99
+    },
+    {
+      "level": 99,
+      "experience": 1.5E7,
       "realLevel": 99
     },
     {

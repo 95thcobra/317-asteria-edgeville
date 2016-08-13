@@ -6,6 +6,7 @@ import org.apache.commons.lang3.SystemUtils;
 
 import com.asteria.game.World;
 import com.asteria.game.character.player.Player;
+import com.asteria.game.character.player.serialize.PlayerSerialization;
 import com.asteria.task.Task;
 
 public class SystemUpdateTask extends Task {
@@ -22,7 +23,8 @@ public class SystemUpdateTask extends Task {
 				continue;
 			}
 			//World.getPlayers().remove(player); // logs ppl out
-			player.save();
+			//player.save();
+			new PlayerSerialization(player).serialize();
 		}
 
 		try {

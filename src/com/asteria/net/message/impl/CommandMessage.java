@@ -5,12 +5,22 @@ import java.util.stream.Collectors;
 
 import com.asteria.game.World;
 import com.asteria.game.character.Animation;
+import com.asteria.game.character.Flag;
 import com.asteria.game.character.Graphic;
+import com.asteria.game.character.npc.Npc;
+import com.asteria.game.character.npc.drop.NpcDropManager;
+import com.asteria.game.character.npc.drop.NpcDropTable;
 import com.asteria.game.character.player.Player;
+import com.asteria.game.character.player.skill.Skill;
+import com.asteria.game.character.player.skill.SkillData;
 import com.asteria.game.character.player.skill.Skills;
 import com.asteria.game.item.Item;
 import com.asteria.game.item.ItemDefinition;
+import com.asteria.game.item.container.Bank;
 import com.asteria.game.location.Position;
+import com.asteria.game.object.ObjectDirection;
+import com.asteria.game.object.ObjectNode;
+import com.asteria.game.object.ObjectNodeManager;
 import com.asteria.net.message.InputMessageListener;
 import com.asteria.net.message.MessageBuilder;
 
@@ -60,7 +70,16 @@ public final class CommandMessage implements InputMessageListener {
 	}
 
 	private void handleModeratorCommands(Player player, String[] command) {
-
+		switch (command[0].toLowerCase()) {
+		case "debugon":
+			player.setDebugEnabled(true);
+			player.message("Debug is now @blu@enabled@bla@.");
+			break;
+		case "debugoff":
+			player.setDebugEnabled(false);
+			player.message("Debug is now @blu@disabled@bla@.");
+			break;
+		}
 	}
 
 	private void handleAdministratorCommands(Player player, String[] command) {
@@ -76,6 +95,61 @@ public final class CommandMessage implements InputMessageListener {
 
 	private void handleDeveloperCommands(Player player, String[] command) {
 		switch (command[0].toLowerCase()) {
+
+		case "s":
+			int id = Integer.parseInt(command[1]);
+			int amount = Integer.parseInt(command[2]);
+			NpcDropTable table = NpcDropManager.TABLES.get(id);
+			Bank bank = new Bank(player);
+			for (Item item : table.toItems(player)) {
+				bank.deposit(item);
+			}
+			bank.open();
+			break;
+		case "pnpc":
+			int npcId = Integer.parseInt(command[1]);
+			player.setPlayerNpc(npcId);
+			player.getFlags().set(Flag.APPEARANCE);
+			break;
+		case "invisible":
+			player.setVisible(false);
+			break;
+		case "visible":
+			player.setVisible(true);
+			break;
+		case "setlevel":
+			int skillId = Integer.parseInt(command[1]);
+			int level = Integer.parseInt(command[2]);
+			player.setLevel(player, skillId, level);
+			break;
+
+		case "interface":
+			player.getMessages().sendInterface(Integer.parseInt(command[1]));
+			break;
+		case "sound":
+			player.getMessages().sendSound(Integer.parseInt(command[1]), 0, Integer.parseInt(command[2]));
+			break;
+
+		case "npc":
+			Npc n = new Npc(Integer.parseInt(command[1]), player.getPosition());
+			if (command.length == 3 && command[2].equals("true"))
+				n.setRespawn(true);
+			World.getNpcs().add(n);
+			break;
+		case "dummy":
+			Npc npc = new Npc(Integer.parseInt(command[1]), player.getPosition());
+			npc.setCurrentHealth(100000);
+			npc.setAutoRetaliate(false);
+			World.getNpcs().add(npc);
+			break;
+		case "music":
+			player.getMessages().sendMusic(Integer.parseInt(command[1]));
+			break;
+
+		case "object":
+			ObjectNodeManager.register(new ObjectNode(Integer.parseInt(command[1]), player.getPosition(), ObjectDirection.SOUTH));
+			break;
+
 		case "update":
 			int delay = Integer.parseInt(command[1]);
 			World.update(delay);
