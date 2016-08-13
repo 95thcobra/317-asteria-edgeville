@@ -1,10 +1,15 @@
 package com.asteria.net.message.impl;
 
-import com.asteria.game.character.Flag;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+import com.asteria.game.World;
+import com.asteria.game.character.Animation;
+import com.asteria.game.character.Graphic;
 import com.asteria.game.character.player.Player;
-import com.asteria.game.character.player.skill.Skill;
 import com.asteria.game.character.player.skill.Skills;
 import com.asteria.game.item.Item;
+import com.asteria.game.item.ItemDefinition;
 import com.asteria.game.location.Position;
 import com.asteria.net.message.InputMessageListener;
 import com.asteria.net.message.MessageBuilder;
@@ -17,20 +22,69 @@ import com.asteria.net.message.MessageBuilder;
  */
 public final class CommandMessage implements InputMessageListener {
 
+	private static String glue(String... args) {
+		return Arrays.stream(args).collect(Collectors.joining(" "));
+	}
+
 	@Override
 	public void handleMessage(Player player, int opcode, int size, MessageBuilder payload) {
-		if (player.isDisabled())
-			return;
 
 		String[] command = payload.getString().toLowerCase().split(" ");
 
-		switch (command[0]) {
+		switch (player.getRights()) {
+		case PLAYER:
+		case DONATOR:
+		case VETERAN:
+			handlePlayerCommands(player, command);
+			break;
+		case MODERATOR:
+			handlePlayerCommands(player, command);
+			handleModeratorCommands(player, command);
+			break;
+		case ADMINISTRATOR:
+			handlePlayerCommands(player, command);
+			handleModeratorCommands(player, command);
+			handleAdministratorCommands(player, command);
+			break;
+		case DEVELOPER:
+			handlePlayerCommands(player, command);
+			handleModeratorCommands(player, command);
+			handleAdministratorCommands(player, command);
+			handleDeveloperCommands(player, command);
+			break;
+		}
+	}
+
+	private void handlePlayerCommands(Player player, String[] command) {
+
+	}
+
+	private void handleModeratorCommands(Player player, String[] command) {
+
+	}
+
+	private void handleAdministratorCommands(Player player, String[] command) {
+		switch (command[0].toLowerCase()) {
+		case "anim":
+			player.animation(new Animation(Integer.parseInt(command[1])));
+			break;
+		case "gfx":
+			player.graphic(new Graphic(Integer.parseInt(command[1])));
+			break;
+		}
+	}
+
+	private void handleDeveloperCommands(Player player, String[] command) {
+		switch (command[0].toLowerCase()) {
+		case "update":
+			int delay = Integer.parseInt(command[1]);
+			World.update(delay);
+			break;
+
 		case "master":
 			for (int i = 0; i < 6; i++) {
-				Skill skill = player.getSkills()[i];
-				skill.setExperience(15000000);
-				skill.setLevel(99, true);
-				Skills.refresh(player, i);
+				//Skill skill = player.getSkills()[i];
+				Skills.experience(player, 15000000, i);
 			}
 			player.determineCombatLevel();
 			break;
@@ -58,6 +112,29 @@ public final class CommandMessage implements InputMessageListener {
 			String message = String.format("localx: %d (%d), localy:%d (%d)", lx, x, ly, y);
 			player.getMessages().sendMessage(message);
 			break;
+		case "find":
+			String item = command[1];
+			if (command.length >= 3) {
+				item += " " + command[2];
+			}
+			final String search = item.toLowerCase();
+
+			new Thread(() -> {
+				int found = 0;
+
+				for (int i = 0; i < 7900; i++) {
+					if (found >= 250) {
+						player.message("Too many results, try again.");
+						return;
+					}
+					ItemDefinition def = new Item(i).getDefinition();
+					if (def != null && def.getName().toLowerCase().contains(search)) {
+						player.message("Result: " + i + " - " + def.getName());
+						found++;
+					}
+				}
+				player.message("Found " + found + " items.");
+			}).start();
 		}
 	}
 }

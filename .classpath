@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="deps/gson-2.3.1.jar"/>
-	<classpathentry kind="lib" path="deps/guava-18.0.jar"/>
-	<classpathentry kind="lib" path="deps/netty-all-4.0.29.Final.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Corsair/Desktop/317 edgeville project/317 asteria server/deps/bzip2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Corsair/Desktop/317 edgeville project/317 asteria server/lib/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Corsair/Desktop/317 edgeville project/317 asteria server/lib/bzip2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Corsair/Desktop/317 edgeville project/317 asteria server/lib/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Corsair/Desktop/317 edgeville project/317 asteria server/lib/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Corsair/Desktop/317 edgeville project/317 asteria server/lib/netty-all-4.0.29.Final.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -23,6 +23,7 @@ public class DefaultMeleeCombatStrategy implements CombatStrategy {
 
 	@Override
 	public CombatSessionData attack(CharacterNode character, CharacterNode victim) {
+		startAnimation(character);
 		return new CombatSessionData(character, victim, 1, CombatType.MELEE, true);
 	}
 

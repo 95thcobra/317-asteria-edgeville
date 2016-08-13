@@ -466,10 +466,8 @@ public final class MovementQueue {
             if (character.getMovementQueue().isLockMovement() || character.isFrozen()) {
                 return;
             }
-            ((Player)character).followPlayer((Player)leader);
-            ((Player)character).getMessages().sendMessage("following....");
             
-            /*if (character.getPosition().equals(leader.getPosition().copy())) {
+            if (character.getPosition().equals(leader.getPosition().copy())) {
                 character.getMovementQueue().reset();
                 int[] dir = { 1, -1 };
                 if (random.get().nextBoolean()) {
@@ -490,7 +488,9 @@ public final class MovementQueue {
                 return;
             }
             
-            character.getMovementQueue().walk(leader.getPosition().copy());*/
+            //character.getMovementQueue().walk(leader.getPosition().copy());
+            ((Player)character).followPlayer((Player)leader);
+            //((Player)character).getMessages().sendMessage("following....");
            // Region.findRoute(character, destX, destY, moveNear, xLength, yLength);
         }
 

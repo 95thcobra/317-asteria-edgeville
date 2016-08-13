@@ -140,7 +140,12 @@ public final class Item {
      * @return the item definition.
      */
     public final ItemDefinition getDefinition() {
-        return ItemDefinition.DEFINITIONS[id];
+    	/*try {
+    		return ItemDefinition.DEFINITIONS[id];
+    	} catch(Exception e) {
+    		return ItemDefinition.DEFINITIONS[1];
+    	}*/
+    	return ItemDefinition.DEFINITIONS[id];
     }
 
     /**

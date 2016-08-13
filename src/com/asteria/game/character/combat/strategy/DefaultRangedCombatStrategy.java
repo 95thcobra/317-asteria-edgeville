@@ -69,6 +69,10 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 
 	@Override
 	public int attackDelay(CharacterNode character) {
+		int attackSpeed = character.getAttackSpeed();
+		if (character instanceof Player) {
+			((Player)character).message("Attackspeed: %d", attackSpeed);
+		}
 		return character.getAttackSpeed();
 	}
 

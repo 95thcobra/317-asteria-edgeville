@@ -30,6 +30,7 @@ import com.asteria.net.ConnectionHandler;
 import com.asteria.net.PlayerIO;
 import com.asteria.task.Task;
 import com.asteria.task.TaskQueue;
+import com.asteria.task.impl.SystemUpdateTask;
 import com.asteria.utility.LoggerUtils;
 
 /**
@@ -85,6 +86,8 @@ public final class World {
      */
     private static GameSyncExecutor executor = new GameSyncExecutor();
 
+    private static boolean serverUpdated = false;
+    
     /**
      * The default constructor, will throw an
      * {@link UnsupportedOperationException} if instantiated.
@@ -440,4 +443,21 @@ public final class World {
     public static PluginHandler getPlugins() {
         return plugins;
     }
+
+	public static void update(int delay) {
+		for(Player p : World.getPlayers()) {
+			if (p == null)
+				continue;
+			p.getMessages().sendSystemUpdate(delay);
+		}
+		World.submit(new SystemUpdateTask(delay));
+	}
+
+	public static boolean isServerUpdated() {
+		return serverUpdated;
+	}
+
+	public static void setServerUpdated(boolean serverUpdated) {
+		World.serverUpdated = serverUpdated;
+	}
 }

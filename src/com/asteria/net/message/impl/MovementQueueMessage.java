@@ -71,7 +71,7 @@ public final class MovementQueueMessage implements InputMessageListener {
         }
         player.getMovementQueue().finish();
 
-        if (Server.DEBUG)
-            player.getMessages().sendMessage("DEBUG[walking= " + player.getPosition().getRegion() + "]");
+        //if (Server.DEBUG)
+           // player.getMessages().sendMessage("DEBUG[walking= " + player.getPosition().getRegion() + "]");
     }
 }

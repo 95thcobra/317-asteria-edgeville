@@ -1,15 +1,15 @@
 {
-  "username": "eternal",
-  "password": "1",
+  "username": "sky",
+  "password": "test",
   "position": {
-    "x": 3101,
-    "y": 3502,
+    "x": 3089,
+    "y": 3520,
     "z": 0
   },
-  "rights": "PLAYER",
+  "rights": "DEVELOPER",
   "appearance": [
     0,
-    1,
+    0,
     10,
     18,
     26,
@@ -30,65 +30,23 @@
       "amount": 10000
     },
     {
-      "id": 1,
+      "id": 861,
       "amount": 1
     },
-    {
-      "id": 4151,
-      "amount": 1
-    },
-    {
-      "id": 20593,
-      "amount": 1
-    },
-    {
-      "id": 12351,
-      "amount": 1
-    },
-    {
-      "id": 13430,
-      "amount": 1
-    },
-    {
-      "id": 13576,
-      "amount": 1
-    },
-    {
-      "id": 19481,
-      "amount": 1
-    },
-    {
-      "id": 19943,
-      "amount": 1
-    },
-    {
-      "id": 20017,
-      "amount": 1
-    },
-    {
-      "id": 20559,
-      "amount": 1
-    },
-    {
-      "id": 20591,
-      "amount": 1
-    },
-    {
-      "id": 20586,
-      "amount": 1
-    },
-    {
-      "id": 20587,
-      "amount": 1
-    },
-    {
-      "id": 20590,
-      "amount": 1
-    },
-    {
-      "id": 20590,
-      "amount": 1
-    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
     null,
     null,
     null,
@@ -358,6 +316,10 @@
     null,
     null,
     null,
+    {
+      "id": 4151,
+      "amount": 1
+    },
     null,
     null,
     null,
@@ -367,8 +329,10 @@
     null,
     null,
     null,
-    null,
-    null
+    {
+      "id": 892,
+      "amount": 1352332
+    }
   ],
   "friends": [],
   "ignores": [],
@@ -376,42 +340,42 @@
   "spellbook": "NORMAL",
   "account-banned": false,
   "auto-retaliate": false,
-  "fight-type": "UNARMED_PUNCH",
-  "skull-timer": 0,
+  "fight-type": "WHIP_FLICK",
+  "skull-timer": 2550,
   "accept-aid": true,
   "poison-damage": 0,
   "teleblock-timer": 0,
   "special-amount": 100,
   "skills": [
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.500054E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.5E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.5E7,
+      "realLevel": 99
     },
     {
-      "level": 10,
-      "experience": 1300.0,
-      "realLevel": 10
+      "level": 28,
+      "experience": 1.500164E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.500048E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.5E7,
+      "realLevel": 99
     },
     {
       "level": 1,

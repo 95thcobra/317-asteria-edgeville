@@ -1,15 +1,15 @@
 {
-  "username": "eternal",
-  "password": "1",
+  "username": "eternalgewag",
+  "password": "1agweagwe",
   "position": {
-    "x": 3101,
-    "y": 3502,
+    "x": 3088,
+    "y": 3514,
     "z": 0
   },
   "rights": "PLAYER",
   "appearance": [
     0,
-    1,
+    0,
     10,
     18,
     26,
@@ -29,66 +29,21 @@
       "id": 995,
       "amount": 10000
     },
-    {
-      "id": 1,
-      "amount": 1
-    },
-    {
-      "id": 4151,
-      "amount": 1
-    },
-    {
-      "id": 20593,
-      "amount": 1
-    },
-    {
-      "id": 12351,
-      "amount": 1
-    },
-    {
-      "id": 13430,
-      "amount": 1
-    },
-    {
-      "id": 13576,
-      "amount": 1
-    },
-    {
-      "id": 19481,
-      "amount": 1
-    },
-    {
-      "id": 19943,
-      "amount": 1
-    },
-    {
-      "id": 20017,
-      "amount": 1
-    },
-    {
-      "id": 20559,
-      "amount": 1
-    },
-    {
-      "id": 20591,
-      "amount": 1
-    },
-    {
-      "id": 20586,
-      "amount": 1
-    },
-    {
-      "id": 20587,
-      "amount": 1
-    },
-    {
-      "id": 20590,
-      "amount": 1
-    },
-    {
-      "id": 20590,
-      "amount": 1
-    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
     null,
     null,
     null,
@@ -372,7 +327,7 @@
   ],
   "friends": [],
   "ignores": [],
-  "run-energy": 100,
+  "run-energy": 98,
   "spellbook": "NORMAL",
   "account-banned": false,
   "auto-retaliate": false,

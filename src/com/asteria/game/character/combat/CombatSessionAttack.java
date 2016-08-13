@@ -100,10 +100,10 @@ public final class CombatSessionAttack extends Task {
 		}
 		
 		// new
-		if (attacker.getType() == NodeType.PLAYER) {
+		/*if (attacker.getType() == NodeType.PLAYER) {
 			int anim = ((Player)attacker).getFightType().getAnimation();
 			attacker.animation(anim);
-		}
+		}*/
 
 		if (victim.getType() == NodeType.PLAYER) {
 			victim.animation(new Animation(404, AnimationPriority.LOW));
