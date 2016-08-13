@@ -23,7 +23,6 @@ public class SystemUpdateTask extends Task {
 			}
 			//World.getPlayers().remove(player); // logs ppl out
 			player.save();
-			this.cancel();
 		}
 
 		try {
@@ -39,6 +38,8 @@ public class SystemUpdateTask extends Task {
 
 		System.out.println("Server has shut down.");
 		System.exit(0);
+		
+		//this.cancel(); // obviously not necessary
 	}
 
 }

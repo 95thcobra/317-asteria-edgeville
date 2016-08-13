@@ -1,12 +1,12 @@
 {
-  "username": "eternalge",
-  "password": "1",
+  "username": "test1",
+  "password": "test",
   "position": {
-    "x": 3086,
-    "y": 3518,
+    "x": 3088,
+    "y": 3520,
     "z": 0
   },
-  "rights": "PLAYER",
+  "rights": "DEVELOPER",
   "appearance": [
     0,
     0,

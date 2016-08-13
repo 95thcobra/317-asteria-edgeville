@@ -2,8 +2,8 @@
   "username": "sky",
   "password": "test",
   "position": {
-    "x": 3089,
-    "y": 3520,
+    "x": 3096,
+    "y": 3517,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -316,10 +316,6 @@
     null,
     null,
     null,
-    {
-      "id": 4151,
-      "amount": 1
-    },
     null,
     null,
     null,
@@ -329,53 +325,51 @@
     null,
     null,
     null,
-    {
-      "id": 892,
-      "amount": 1352332
-    }
+    null,
+    null
   ],
   "friends": [],
   "ignores": [],
-  "run-energy": 100,
+  "run-energy": 98,
   "spellbook": "NORMAL",
   "account-banned": false,
   "auto-retaliate": false,
-  "fight-type": "WHIP_FLICK",
-  "skull-timer": 2550,
+  "fight-type": "UNARMED_PUNCH",
+  "skull-timer": 0,
   "accept-aid": true,
   "poison-damage": 0,
   "teleblock-timer": 0,
   "special-amount": 100,
   "skills": [
     {
-      "level": 99,
-      "experience": 1.500054E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 99,
-      "experience": 1.5E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 99,
-      "experience": 1.5E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 28,
-      "experience": 1.500164E7,
-      "realLevel": 99
+      "level": 10,
+      "experience": 1300.0,
+      "realLevel": 10
     },
     {
-      "level": 99,
-      "experience": 1.500048E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
-      "level": 99,
-      "experience": 1.5E7,
-      "realLevel": 99
+      "level": 1,
+      "experience": 0.0,
+      "realLevel": 1
     },
     {
       "level": 1,
