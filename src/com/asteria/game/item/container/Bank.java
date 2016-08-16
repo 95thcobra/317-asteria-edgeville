@@ -30,7 +30,6 @@ public final class Bank extends ItemContainer {
      * Opens and refreshes the bank for {@code player}.
      */
     public void open() {
-    	player.message("opening bank");
         shift();
         player.setWithdrawAsNote(false);
         player.getMessages().sendByteState(115, 0);
