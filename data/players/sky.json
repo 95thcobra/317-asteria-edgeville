@@ -2,9 +2,9 @@
   "username": "sky",
   "password": "test",
   "position": {
-    "x": 3095,
-    "y": 3496,
-    "z": 0
+    "x": 2871,
+    "y": 5355,
+    "z": 2
   },
   "rights": "DEVELOPER",
   "appearance": [
@@ -31,7 +31,7 @@
       "amount": 5
     },
     {
-      "id": 4151,
+      "id": 861,
       "amount": 1
     },
     {
@@ -39,18 +39,45 @@
       "amount": 1
     },
     {
-      "id": 5698,
+      "id": 4151,
       "amount": 1
     },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
+    {
+      "id": 560,
+      "amount": 135277
+    },
+    {
+      "id": 565,
+      "amount": 12379
+    },
+    {
+      "id": 554,
+      "amount": 1235325234
+    },
+    {
+      "id": 555,
+      "amount": 23456171
+    },
+    {
+      "id": 526,
+      "amount": 1
+    },
+    {
+      "id": 526,
+      "amount": 1
+    },
+    {
+      "id": 526,
+      "amount": 1
+    },
+    {
+      "id": 1615,
+      "amount": 1
+    },
+    {
+      "id": 4152,
+      "amount": 1
+    },
     null,
     null,
     null,
@@ -327,7 +354,7 @@
     null,
     null,
     {
-      "id": 861,
+      "id": 5698,
       "amount": 1
     },
     null,
@@ -341,16 +368,18 @@
     null,
     {
       "id": 892,
-      "amount": 25302
+      "amount": 25245
     }
   ],
-  "friends": [],
+  "friends": [
+    1020628
+  ],
   "ignores": [],
-  "run-energy": 81,
-  "spellbook": "NORMAL",
+  "run-energy": 100,
+  "spellbook": "ANCIENT",
   "account-banned": false,
-  "auto-retaliate": false,
-  "fight-type": "SHORTBOW_ACCURATE",
+  "auto-retaliate": true,
+  "fight-type": "DAGGER_STAB",
   "skull-timer": 0,
   "accept-aid": true,
   "poison-damage": 0,
@@ -359,48 +388,48 @@
   "skills": [
     {
       "level": 99,
-      "experience": 1.5037968E7,
+      "experience": 1.5104889E7,
       "realLevel": 99
     },
     {
       "level": 99,
-      "experience": 1.5E7,
+      "experience": 1.5101333E7,
       "realLevel": 99
     },
     {
       "level": 99,
-      "experience": 1.5E7,
+      "experience": 9.0E7,
       "realLevel": 99
     },
     {
       "level": 99,
-      "experience": 1.500164E7,
+      "experience": 9.000407699999991E7,
       "realLevel": 99
     },
     {
       "level": 99,
-      "experience": 1.5000272E7,
+      "experience": 9.0002088E7,
       "realLevel": 99
     },
     {
       "level": 99,
-      "experience": 1.5E7,
+      "experience": 9.0E7,
       "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.303601E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.3034431E7,
+      "realLevel": 99
     },
     {
-      "level": 1,
-      "experience": 0.0,
-      "realLevel": 1
+      "level": 99,
+      "experience": 1.3034431E7,
+      "realLevel": 99
     },
     {
       "level": 1,

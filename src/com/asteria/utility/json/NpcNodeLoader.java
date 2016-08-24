@@ -30,6 +30,9 @@ public final class NpcNodeLoader extends JsonLoader {
         Position position = Objects.requireNonNull(builder.fromJson(reader.get("position").getAsJsonObject(), Position.class));
         boolean coordinate = reader.get("random-walk").getAsBoolean();
         int radius = reader.get("walk-radius").getAsInt();
+        
+        String direction = reader.get("direction").getAsString();
+        
         Preconditions.checkState(!(coordinate && radius == 0));
         Preconditions.checkState(!(!coordinate && radius > 0));
         Npc npc = new Npc(id, position);
@@ -37,7 +40,25 @@ public final class NpcNodeLoader extends JsonLoader {
         npc.getMovementCoordinator().setCoordinate(coordinate);
         npc.getMovementCoordinator().setRadius(radius);
         npc.setRespawn(true);
+        
         if (!World.getNpcs().add(npc))
             throw new IllegalStateException("NPC could not be added to the " + "world!");
+
+        System.out.println(direction);
+        switch(direction) {
+        case "north":
+    		npc.facePosition(new Position(npc.getPosition().getX(), npc.getPosition().getY() + 1));
+    		System.out.println("northing");
+        	break;
+        case "east":
+    		npc.facePosition(new Position(npc.getPosition().getX() + 1, npc.getPosition().getY()));
+        	break;
+        case "west":
+    		npc.facePosition(new Position(npc.getPosition().getX() - 1, npc.getPosition().getY()));
+        	break;
+        case "south":
+    		npc.facePosition(new Position(npc.getPosition().getX(), npc.getPosition().getY() - 1));
+        	break;
+        }
     }
 }

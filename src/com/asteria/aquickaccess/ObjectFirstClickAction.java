@@ -10,12 +10,6 @@ public class ObjectFirstClickAction {
 
 	public void handle(Player player, int objectId, Position position) {
 		switch (objectId) {
-		// edgeville ditch
-		case 23271:
-			Position pos = player.getPosition();
-			boolean below = pos.getY() < 3521;
-			player.move(new Position(pos.getX(), below ? 3523 : 3520));
-			break;
 
 		// prayer altar
 		case 409:
@@ -37,6 +31,20 @@ public class ObjectFirstClickAction {
 			} else if (player.getSpellbook() == Spellbook.NORMAL) {
 				Spellbook.convert(player, Spellbook.ANCIENT);
 			}
+			break;
+
+		// edgeville ditch
+		case 23271:
+			Position pos = player.getPosition();
+			boolean below = pos.getY() < 3521;
+			player.move(new Position(pos.getX(), below ? 3523 : 3520));
+			break;
+
+		// bandos door to boss
+		case 26503:
+			int x = player.getPosition().getX();
+			boolean outside = x < 2863;
+			player.move(new Position(outside ? 2864 : 2861, 5354, 2));
 			break;
 		}
 	}

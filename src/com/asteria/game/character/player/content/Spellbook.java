@@ -21,13 +21,13 @@ public enum Spellbook {
                 @Override
                 public void execute() {
                     if (player.getTeleportStage() == 1) {
-                        player.graphic(new Graphic(308));
                         player.setTeleportStage(2);
                     } else if (player.getTeleportStage() == 2) {
+                        player.graphic(new Graphic(308, 100));
                         player.setTeleportStage(3);
                     } else if (player.getTeleportStage() == 3) {
-                        player.move(position);
                         player.animation(new Animation(715));
+                        player.move(position);
                         player.setTeleportStage(0);
                         this.cancel();
                     }

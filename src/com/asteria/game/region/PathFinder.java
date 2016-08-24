@@ -162,7 +162,7 @@ public class PathFinder {
 		int y = tileQueueY.get(tail) + 8 * c.getPosition().getRegionY();
 		c.getMovementQueue().addToPath(new Position(x, y));
 
-		System.out.println("x: " + tileQueueX.get(tail) + ", y:" + tileQueueY.get(tail));
+		//System.out.println("x: " + tileQueueX.get(tail) + ", y:" + tileQueueY.get(tail));
 
 		for (int i = 1; i < size; i++) {
 			tail--;

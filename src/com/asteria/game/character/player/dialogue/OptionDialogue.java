@@ -8,7 +8,7 @@ import java.util.function.Consumer;
  *
  * @author lare96 <http://github.com/lare96>
  */
-public class OptionDialogue implements DialogueChain {
+public abstract class OptionDialogue implements DialogueChain {
 
     /**
      * The different options that will be displayed.
@@ -24,7 +24,7 @@ public class OptionDialogue implements DialogueChain {
     public OptionDialogue(String... options) {
         this.options = options;
     }
-
+    
     @Override
     public final void accept(DialogueChainBuilder dialogue) {
         dialogue.interrupt();

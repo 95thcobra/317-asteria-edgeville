@@ -223,8 +223,9 @@ public final class ClickButtonMessage implements InputMessageListener {
 			}
 			break;
 
-		// home tele regular magic
-		case 4171:
+		// home tele
+		case 4171: // normal
+		case 50056: // ancient
 			player.teleport(Locations.EDGEVILLE.getPosition());
 			break;
 

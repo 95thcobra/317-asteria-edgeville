@@ -193,6 +193,7 @@ public final class Skills {
             }
             player.getSkills()[skill] = s;
         }
+        //player.message("skill: %d, level: %d, exp: %d",skill, s.getLevel(), (int)s.getExperience());
         player.getMessages().sendSkill(skill, s.getLevel(), (int) s.getExperience());
     }
 

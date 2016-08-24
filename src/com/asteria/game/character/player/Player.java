@@ -1855,6 +1855,9 @@ public final class Player extends CharacterNode {
 		Skill skill = skills[skillId];
 		skill.setExperience(skill.getXPForLevel(level));
 		skill.setRealLevel(level);
-		Skills.restore(player, skillId);
+		skill.setLevel(level, false);
+		//Skills.restore(player, skillId);
+		Skills.refresh(player, skillId);
+		player.determineCombatLevel();
 	}
 }

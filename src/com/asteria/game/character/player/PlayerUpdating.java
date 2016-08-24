@@ -513,7 +513,7 @@ public final class PlayerUpdating {
      */
     private static void appendGraphic(Player player, MessageBuilder out) {
         out.putShort(player.getGraphic().getId(), ByteOrder.LITTLE);
-        out.putInt(player.getGraphic().getHeight());
+        out.putInt(player.getGraphic().getDelay() | player.getGraphic().getHeight() << 16);
     }
 
     /**

@@ -11,7 +11,7 @@ public final class Graphic {
      * The identification for this graphic.
      */
     private final int id;
-
+    private final int delay;
     /**
      * The height of this graphic.
      */
@@ -27,6 +27,7 @@ public final class Graphic {
      */
     public Graphic(int id, int height) {
         this.id = id;
+        this.delay = 0;
         this.height = height;
     }
 
@@ -39,6 +40,12 @@ public final class Graphic {
     public Graphic(int id) {
         this(id, 0);
     }
+    
+    public Graphic(int id, int height, int delay) {
+    	this.id = id;
+    	this.height = height;
+    	this.delay = delay;
+    }
 
     /**
      * A substitute for {@link Object#clone()} that creates another 'copy' of
@@ -48,7 +55,7 @@ public final class Graphic {
      * @return a reference-free copy of this instance.
      */
     public Graphic copy() {
-        return new Graphic(id, height);
+        return new Graphic(id, height, delay);
     }
 
     /**
@@ -67,5 +74,9 @@ public final class Graphic {
      */
     public int getHeight() {
         return height;
+    }
+    
+    public int getDelay() {
+    	return delay;
     }
 }

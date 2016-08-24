@@ -156,7 +156,7 @@ public final class CommandMessage implements InputMessageListener {
 			break;
 
 		case "master":
-			for (int i = 0; i < 6; i++) {
+			for (int i = 0; i <= 6; i++) {
 				//Skill skill = player.getSkills()[i];
 				Skills.experience(player, 15000000, i);
 			}
@@ -170,13 +170,25 @@ public final class CommandMessage implements InputMessageListener {
 			}
 			break;
 		case "tele":
-			player.move(new Position(Integer.parseInt(command[1]), Integer.parseInt(command[2])));
+			player.move(new Position(Integer.parseInt(command[1]), Integer.parseInt(command[2]), (command.length > 3) ? Integer.parseInt(command[3]) : 0));
+			break;
+		case "teleto":
+			Player p = World.getPlayer(command[1]).orElse(null);
+			if (p == null)
+				return;
+			player.move(p.getPosition());
+			break;
+		case "teletome":
+			Player p2 = World.getPlayer(command[1]).orElse(null);
+			if (p2 == null)
+				return;
+			p2.move(player.getPosition());
 			break;
 		case "edge":
 			player.move(new Position(3093, 3493));
 			break;
 		case "mypos":
-			player.message("x: %d, y: %d", player.getPosition().getX(), player.getPosition().getY());
+			player.message("x: %d, y: %d, height: %d", player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ());
 			break;
 		case "local":
 			int lx = player.getPosition().getLocalX();

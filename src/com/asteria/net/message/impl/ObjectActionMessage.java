@@ -74,8 +74,6 @@ public final class ObjectActionMessage implements InputMessageListener {
 		
 		player.getMovementListener().append(() -> {
 			
-			player.message("Got here");
-			
 			if (player.getPosition().withinDistance(position, /*size*/3)) { // this dont work, idk why
 		       // if (Math.abs(position.getX() - player.getPosition().getX()) <= 3 && Math.abs(position.getY() - player.getPosition().getY()) <= 3){
 				//MinigameHandler.execute(player, m -> m.onFirstClickObject(player, objectId, position.copy()));

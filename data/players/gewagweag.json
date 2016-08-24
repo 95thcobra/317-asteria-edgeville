@@ -1,9 +1,9 @@
 {
-  "username": "test",
-  "password": "test",
+  "username": "gewagweag",
+  "password": "gweagwe",
   "position": {
-    "x": 3087,
-    "y": 3493,
+    "x": 3088,
+    "y": 3503,
     "z": 0
   },
   "rights": "DEVELOPER",
@@ -341,32 +341,32 @@
   "skills": [
     {
       "level": 99,
-      "experience": 1.5000044E7,
+      "experience": 9.0E7,
       "realLevel": 99
     },
     {
       "level": 99,
-      "experience": 1.5E7,
+      "experience": 2.0E8,
       "realLevel": 99
     },
     {
       "level": 99,
-      "experience": 1.5E7,
+      "experience": 2.0E8,
       "realLevel": 99
     },
     {
-      "level": 65,
-      "experience": 1.5001314666666668E7,
-      "realLevel": 99
-    },
-    {
-      "level": 99,
-      "experience": 1.5E7,
+      "level": 15,
+      "experience": 2.0E8,
       "realLevel": 99
     },
     {
       "level": 99,
-      "experience": 1.5E7,
+      "experience": 2.0E8,
+      "realLevel": 99
+    },
+    {
+      "level": 99,
+      "experience": 2.0E8,
       "realLevel": 99
     },
     {
